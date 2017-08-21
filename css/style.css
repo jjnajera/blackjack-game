@@ -3,7 +3,19 @@ html {
   text-align: center;
 }
 
-h1 {
-  font-size: 3em;
+header {
+  font-size: 2em;
   margin: 0 auto;
+}
+
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.start-game {
+  width: 8rem;
+  height: 2rem;
+  font-size: 0.8em;
+  padding: 0.5em;
 }
