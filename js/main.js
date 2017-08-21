@@ -60,8 +60,12 @@ function getCards(cards, hand){
   }
 }
 
+function hitHand(score){
+
+}
+
 $(function() {
-  $('.game').on('click', function(event){
+  $('.game').on('submit', function(event){
     console.log('button clicked');
     event.preventDefault();
 
@@ -72,5 +76,27 @@ $(function() {
 
     console.log('dealer', dealerHand);
     console.log('player', playerHand);
-  })
+
+    let playerScore = 0;
+    playerHand.forEach(function(card) {
+      playerScore += card.value;
+    })
+
+    if(playerScore < 21){
+      var $button = $(`
+          <div class='decision'>
+            <input class='hit' type='submit' value='Hit'>
+          </div>
+        `);
+
+      $('#container').append($button);
+      console.log(playerScore);
+    }
+
+    $('.hit').on('click', function() {
+      console.log('player wants to hit');
+      playerHand.push(cards.shift());
+      console.log(playerHand);
+    })
+  });
 })
