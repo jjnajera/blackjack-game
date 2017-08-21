@@ -60,8 +60,54 @@ function getCards(cards, hand){
   }
 }
 
-function hitHand(score){
+function startGame(){
+  $('#container').empty();
+  Dealer.hand = [];
+  Player.hand = [];
 
+  Dealer.startCards(cards);
+  Player.startCards(cards);
+
+  console.log('player hand', Player.hand);
+  console.log('dealer hand', Dealer.hand);
+  console.log('cards',cards);
+
+  $('#hit').on('click', function(){
+    $('.decision').hide();
+    Player.hit(cards);
+
+    console.log('player score', Player.hand);
+    if(Player.score() < 21){
+      Player.showHitStand();
+    }
+    else {
+      alert("Dealer wins");
+      startGame();
+    }
+
+    console.log('player score',Player.score());
+  })
+
+  $('#stand').on('click', function(){
+    $('.decision').hide();
+    Dealer.turn(cards);
+
+    console.log('dealer', Dealer.hand);
+
+    if(Player.score() === Dealer.score()){
+      alert("Push, no one wins");
+    }
+    else if(Player.score() > Dealer.score()) {
+      alert("You win");
+    }
+    else {
+      alert('Dealer wins');
+    }
+
+    console.log('dealer score',Dealer.score());
+
+    startGame()
+  })
 }
 
 $(function() {
@@ -72,77 +118,8 @@ $(function() {
     console.log('button clicked');
     event.preventDefault();
 
-    $('#container').empty();
-
     cards.sort(function(){return 0.5-Math.random()});
 
-    Dealer.startCards(cards);
-    Player.startCards(cards);
-
-    console.log('player hand', Player.hand);
-    console.log('dealer hand', Dealer.hand);
-    console.log('cards',cards);
-
-    $('#hit').on('click', function(){
-      $('.decision').hide();
-      Player.hit(cards);
-
-      console.log(Player.hand);
-      if(Player.score() < 21){
-        Player.showHitStand();
-      }
-      else {
-        alert("Dealer wins");
-      }
-
-      console.log(Player.score());
-    })
-
-    $('#stand').on('click', function(){
-      $('.decision').hide();
-      Dealer.turn(cards);
-
-      console.log(Dealer.hand);
-
-      if(Player.score() === Dealer.score()){
-        alert("Push, no one wins");
-      }
-      else if(Player.score() > Dealer.score()) {
-        alert("You win");
-      }
-      else {
-        alert('Dealer wins');
-      }
-
-      console.log(Dealer.score());
+    startGame();
   })
-
-    // getCards(cards, dealerHand);
-    // getCards(cards, playerHand);
-    //
-    // console.log('dealer', dealerHand);
-    // console.log('player', playerHand);
-    //
-    // let playerScore = 0;
-    // playerHand.forEach(function(card) {
-    //   playerScore += card.value;
-    // })
-    //
-    // if(playerScore < 21){
-    //   var $button = $(`
-    //       <div class='decision'>
-    //         <input class='hit' type='submit' value='Hit'>
-    //       </div>
-    //     `);
-    //
-    //   $('#container').append($button);
-    //   console.log(playerScore);
-    // }
-    //
-    // $('.hit').on('click', function() {
-    //   console.log('player wants to hit');
-    //   playerHand.push(cards.shift());
-    //   console.log(playerHand);
-    // })
-  });
 })
