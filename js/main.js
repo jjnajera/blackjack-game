@@ -108,6 +108,10 @@ function startGame(){
         <div id=user-hand>
         </div>
         <span id='user-score'>0</span>
+        <div class="decision">
+          <input type="submit" value="Hit" id="hit">
+          <input type="submit" value="Stand" id="stand">
+        </div>
       </div>
     `);
 
@@ -116,10 +120,15 @@ function startGame(){
   Dealer.startCards(cards);
   Player.startCards(cards);
 
-  console.log('cards',cards);
+  setTimeout(function() {
+    if(Player.score() === 21)
+      Dealer.turn();
+  }, 200);
 
   $('#hit').on('click', function(){
-    $('.decision').hide();
+    $(this).attr('disabled', 'true');
+    $('#stand').attr('disabled', 'true');
+
     Player.hit(cards);
     $('#user-score').text(Player.score());
 
@@ -136,7 +145,9 @@ function startGame(){
   })
 
   $('#stand').on('click', function(){
-    $('.decision').hide();
+    $(this).attr('disabled', 'true');
+    $('#hit').attr('disabled', 'true');
+
     console.log(Dealer.turn(cards));
 
     setTimeout(function() {
@@ -164,6 +175,7 @@ $(function() {
     console.log('button clicked');
     event.preventDefault();
 
+    $('#container').addClass('game-wrapper');
     cards.sort(function(){return 0.5-Math.random()});
 
     startGame();

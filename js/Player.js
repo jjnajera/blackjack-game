@@ -7,7 +7,8 @@ var Player = (function(){
       }, 0)
     },
     showHitStand: function(){
-      $('.decision').show();
+      $('#hit').removeAttr('disabled');
+      $('#stand').removeAttr('disabled');
     },
     startCards: function(cards){
       while(this.hand.length < 2){
@@ -23,18 +24,6 @@ var Player = (function(){
 
 
       $('#user-score').text(this.score());
-      if(this.score() < 21){
-        var $decision = $(`
-            <div class="decision">
-              <input type="submit" value="Hit" id="hit">
-              <input type="submit" value="Stand" id="stand">
-            </div>
-          `);
-        $('.user').append($decision);
-      }
-      else {
-        alert('Black jack');
-      }
     },
     hit: function(cards) {
       var card = cards.shift();
