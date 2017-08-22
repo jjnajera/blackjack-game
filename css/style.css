@@ -2,16 +2,41 @@ body {
   font-size: 20px;
   text-align: center;
   height: 100vh;
+    font-family: 'Baloo Bhaijaan', cursive;
 }
 
 header {
-  font-size: 2em;
   margin: 0 auto;
 }
 
+h1 {
+  font-size: 3em;
+}
+
+h2, h3 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 0.5em;
+}
+
+span {
+  display: inline-block;
+  font-size: 2.5em;
+}
+
+input[type=submit] {
+  padding: 0.5em;
+  font-size: 1em;
+  width: 4em;
+  height: 10%;
+  background: tomato;
+  margin: 0.8em;
+}
+
 main {
-  max-width: 1080px;
-  height: 90%;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -26,14 +51,12 @@ main {
   padding: 0.5em;
 }
 
-/*.game-wrapper {
+.game-wrapper {
     background-image: url('../images/blackjack-table.png');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
     margin: 0 auto;
-    width: 80%;
-    height: 100%;
-}*/
+}
 
 .player {
   padding: 5em;
