@@ -1,6 +1,7 @@
-html {
+body {
   font-size: 20px;
   text-align: center;
+  height: 100vh;
 }
 
 header {
@@ -20,16 +21,18 @@ main {
   padding: 0.5em;
 }
 
+.game-wrapper {
+    background-image: url('../images/blackjack-table.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
 .cards {
   background-image: url('../images/deck-of-cards.gif');
   width: 72px;
   height: 100px;
   display: inline-block;
-}
-
-.back-cover {
-  background-position-x: -360px;
-  background-position-y: 100px;
 }
 
 /******************************
@@ -370,4 +373,9 @@ main {
 .black-king-spades {
   background-position-x: 72px;
   background-position-y: 200px;
+}
+
+.back-cover {
+  background-position-x: -360px;
+  background-position-y: 100px;
 }
