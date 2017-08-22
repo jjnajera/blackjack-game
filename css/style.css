@@ -2,7 +2,8 @@ body {
   font-size: 20px;
   text-align: center;
   height: 100vh;
-    font-family: 'Baloo Bhaijaan', cursive;
+  font-family: 'Baloo Bhaijaan', cursive;
+  background: #56e0ff
 }
 
 header {
@@ -58,8 +59,13 @@ main {
     margin: 0 auto;
 }
 
+.message {
+  display: none;
+  padding: 1em;
+}
+
 .player {
-  padding: 5em;
+  padding: 4em;
 }
 
 .cards {
