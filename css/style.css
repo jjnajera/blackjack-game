@@ -19,3 +19,355 @@ main {
   font-size: 0.8em;
   padding: 0.5em;
 }
+
+.cards {
+  background-image: url('../images/deck-of-cards.gif');
+  width: 72px;
+  height: 100px;
+  display: inline-block;
+}
+
+.back-cover {
+  background-position-x: -360px;
+  background-position-y: 100px;
+}
+
+/******************************
+* Red Hearts
+******************************/
+.red-ace-hearts {
+  background-position-x: 0;
+  background-position-y: 0;
+}
+
+.red-two-hearts {
+  background-position-x: -72px;
+  background-position-y: 0;
+}
+
+.red-three-hearts {
+  background-position-x: -144px;
+  background-position-y: 0;
+}
+
+.red-four-hearts {
+  background-position-x: -216px;
+  background-position-y: 0;
+}
+
+.red-five-hearts {
+  background-position-x: -288px;
+  background-position-y: 0;
+}
+
+.red-six-hearts {
+  background-position-x: -360px;
+  background-position-y: 0;
+}
+
+.red-seven-hearts {
+  background-position-x: -432px;
+  background-position-y: 0;
+}
+
+.red-eight-hearts {
+  background-position-x: 432px;
+  background-position-y: 0;
+}
+
+.red-nine-hearts {
+  background-position-x: 360px;
+  background-position-y: 0;
+}
+
+.red-ten-hearts {
+  background-position-x: 288px;
+  background-position-y: 0;
+}
+
+.red-jack-hearts {
+  background-position-x: 216px;
+  background-position-y: 0;
+}
+
+.red-queen-hearts {
+  background-position-x: 144px;
+  background-position-y: 0;
+}
+
+.red-king-hearts {
+  background-position-x: 72px;
+  background-position-y: 0;
+}
+
+/******************************
+* Red Diamonds
+******************************/
+.red-ace-diamonds {
+  background-position-x: 0;
+  background-position-y: -100px;
+}
+
+.red-two-diamonds {
+  background-position-x: -72px;
+  background-position-y: -100px;
+}
+
+.red-three-diamonds {
+  background-position-x: -144px;
+  background-position-y: -100px;
+}
+
+.red-four-diamonds {
+  background-position-x: -216px;
+  background-position-y: -100px;
+}
+
+.red-five-diamonds {
+  background-position-x: -288px;
+  background-position-y: -100px;
+}
+
+.red-six-diamonds {
+  background-position-x: -360px;
+  background-position-y: -100px;
+}
+
+.red-seven-diamonds {
+  background-position-x: -432px;
+  background-position-y: -100px;
+}
+
+.red-eight-diamonds {
+  background-position-x: 432px;
+  background-position-y: -100px;
+}
+
+.red-nine-diamonds {
+  background-position-x: 360px;
+  background-position-y: -100px;
+}
+
+.red-ten-diamonds {
+  background-position-x: 288px;
+  background-position-y: -100px;
+}
+
+.red-jack-diamonds {
+  background-position-x: 216px;
+  background-position-y: -100px;
+}
+
+.red-queen-diamonds {
+  background-position-x: 144px;
+  background-position-y: -100px;
+}
+
+.red-king-diamonds {
+  background-position-x: 72px;
+  background-position-y: -100px;
+}
+
+/******************************
+* Red Hearts
+******************************/
+.red-ace-hearts {
+  background-position-x: 0;
+  background-position-y: 0;
+}
+
+.red-two-hearts {
+  background-position-x: -72px;
+  background-position-y: 0;
+}
+
+.red-three-hearts {
+  background-position-x: -144px;
+  background-position-y: 0;
+}
+
+.red-four-hearts {
+  background-position-x: -216px;
+  background-position-y: 0;
+}
+
+.red-five-hearts {
+  background-position-x: -288px;
+  background-position-y: 0;
+}
+
+.red-six-hearts {
+  background-position-x: -360px;
+  background-position-y: 0;
+}
+
+.red-seven-hearts {
+  background-position-x: -432px;
+  background-position-y: 0;
+}
+
+.red-eight-hearts {
+  background-position-x: 432px;
+  background-position-y: 0;
+}
+
+.red-nine-hearts {
+  background-position-x: 360px;
+  background-position-y: 0;
+}
+
+.red-ten-hearts {
+  background-position-x: 288px;
+  background-position-y: 0;
+}
+
+.red-jack-hearts {
+  background-position-x: 216px;
+  background-position-y: 0;
+}
+
+.red-queen-hearts {
+  background-position-x: 144px;
+  background-position-y: 0;
+}
+
+.red-king-hearts {
+  background-position-x: 72px;
+  background-position-y: 0;
+}
+
+/******************************
+* Black Clovers
+******************************/
+.black-ace-clovers {
+  background-position-x: 0;
+  background-position-y: -200px;
+}
+
+.black-two-clovers {
+  background-position-x: -72px;
+  background-position-y: -200px;
+}
+
+.black-three-clovers {
+  background-position-x: -144px;
+  background-position-y: -200px;
+}
+
+.black-four-clovers {
+  background-position-x: -216px;
+  background-position-y: -200px;
+}
+
+.black-five-clovers {
+  background-position-x: -288px;
+  background-position-y: -200px;
+}
+
+.black-six-clovers {
+  background-position-x: -360px;
+  background-position-y: -200px;
+}
+
+.black-seven-clovers {
+  background-position-x: -432px;
+  background-position-y: -200px;
+}
+
+.black-eight-clovers {
+  background-position-x: 432px;
+  background-position-y: -200px;
+}
+
+.black-nine-clovers {
+  background-position-x: 360px;
+  background-position-y: -200px;
+}
+
+.black-ten-clovers {
+  background-position-x: 288px;
+  background-position-y: -200px;
+}
+
+.black-jack-clovers {
+  background-position-x: 216px;
+  background-position-y: -200px;
+}
+
+.black-queen-clovers {
+  background-position-x: 144px;
+  background-position-y: -200px;
+}
+
+.black-king-clovers {
+  background-position-x: 72px;
+  background-position-y: -200px;
+}
+
+/******************************
+* Black Spades
+******************************/
+.black-ace-spades {
+  background-position-x: 0;
+  background-position-y: 200px;
+}
+
+.black-two-spades {
+  background-position-x: -72px;
+  background-position-y: 200px;
+}
+
+.black-three-spades {
+  background-position-x: -144px;
+  background-position-y: 200px;
+}
+
+.black-four-spades {
+  background-position-x: -216px;
+  background-position-y: 200px;
+}
+
+.black-five-spades {
+  background-position-x: -288px;
+  background-position-y: 200px;
+}
+
+.black-six-spades {
+  background-position-x: -360px;
+  background-position-y: 200px;
+}
+
+.black-seven-spades {
+  background-position-x: -432px;
+  background-position-y: 200px;
+}
+
+.black-eight-spades {
+  background-position-x: 432px;
+  background-position-y: 200px;
+}
+
+.black-nine-spades {
+  background-position-x: 360px;
+  background-position-y: 200px;
+}
+
+.black-ten-spades {
+  background-position-x: 288px;
+  background-position-y: 200px;
+}
+
+.black-jack-spades {
+  background-position-x: 216px;
+  background-position-y: 200px;
+}
+
+.black-queen-spades {
+  background-position-x: 144px;
+  background-position-y: 200px;
+}
+
+.black-king-spades {
+  background-position-x: 72px;
+  background-position-y: 200px;
+}
