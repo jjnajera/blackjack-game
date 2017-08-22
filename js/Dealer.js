@@ -24,18 +24,24 @@ var Dealer = (function() {
     },
     turn: function(cards){
       $('.cards').removeClass('back-cover');
-      setTimeout(function() {
-        while(Dealer.score() <= 16){
-          let card = cards.shift();
-          Dealer.hand.push(card);
 
-          var $cardImage = $(`
-              <div class='cards ${card.color}-${card.face}-${card.suit}'></div>
-            `);
+      if(this.score() > 16){
+        return true;
+      }
+      else{
+          setTimeout(function() {
+            let card = cards.shift();
+            Dealer.hand.push(card);
 
-          $('#dealer-hand').append($cardImage);
-        }
-      }, 1000);
+            var $cardImage = $(`
+                <div class='cards ${card.color}-${card.face}-${card.suit}'></div>
+              `);
+
+            $('#dealer-hand').append($cardImage);
+
+            return Dealer.turn(cards);
+          }, 300);
+      }
     }
   }
 })();

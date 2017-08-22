@@ -21,7 +21,6 @@ var Player = (function(){
         $('#user-hand').append($image);
       }
 
-      console.log(this.score());
       if(this.score() < 21){
         var $decision = $(`
             <div class="decision">
@@ -29,7 +28,7 @@ var Player = (function(){
               <input type="submit" value="Stand" id="stand">
             </div>
           `);
-        $('#container').append($decision);
+        $('.user').append($decision);
       }
       else {
         alert('Black jack');

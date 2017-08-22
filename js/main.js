@@ -102,10 +102,12 @@ function startGame(){
       <div class='player dealer'>
         <div id=dealer-hand>
         </div>
+        <span>0</span>
       </div>
       <div class='player user'>
         <div id=user-hand>
         </div>
+        <span>0</span>
       </div>
     `);
 
@@ -132,20 +134,18 @@ function startGame(){
       }
     }, 200);
 
-    console.log('player score',Player.score());
   })
 
   $('#stand').on('click', function(){
     $('.decision').hide();
-    Dealer.turn(cards);
-
-    console.log('dealer', Dealer.hand);
+    console.log(Dealer.turn(cards));
 
     setTimeout(function() {
+      console.log(Dealer.score());
       if(Player.score() === Dealer.score()){
         alert("Push, no one wins");
       }
-      else if(Player.score() > Dealer.score()) {
+      else if(Player.score() > Dealer.score() || Dealer.score() >= 22) {
         alert("You win");
       }
       else {
@@ -153,9 +153,7 @@ function startGame(){
       }
 
       startGame();
-    }, 200);
-
-    console.log('dealer score',Dealer.score());
+    }, 500);
   })
 }
 
