@@ -102,12 +102,12 @@ function startGame(){
       <div class='player dealer'>
         <div id=dealer-hand>
         </div>
-        <span>0</span>
+        <span id='dealer-score'>0</span>
       </div>
       <div class='player user'>
         <div id=user-hand>
         </div>
-        <span>0</span>
+        <span id='user-score'>0</span>
       </div>
     `);
 
@@ -121,11 +121,10 @@ function startGame(){
   $('#hit').on('click', function(){
     $('.decision').hide();
     Player.hit(cards);
-
-    console.log('player score', Player.hand);
+    $('#user-score').text(Player.score());
 
     setTimeout(function() {
-      if(Player.score() < 21){
+      if(Player.score() <= 21){
         Player.showHitStand();
       }
       else {
@@ -153,7 +152,7 @@ function startGame(){
       }
 
       startGame();
-    }, 500);
+    }, 900);
   })
 }
 

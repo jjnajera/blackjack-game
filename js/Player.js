@@ -21,6 +21,8 @@ var Player = (function(){
         $('#user-hand').append($image);
       }
 
+
+      $('#user-score').text(this.score());
       if(this.score() < 21){
         var $decision = $(`
             <div class="decision">

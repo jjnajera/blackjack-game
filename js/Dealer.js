@@ -24,6 +24,7 @@ var Dealer = (function() {
     },
     turn: function(cards){
       $('.cards').removeClass('back-cover');
+      $('#dealer-score').text(this.score());
 
       if(this.score() > 16){
         return true;
