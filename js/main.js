@@ -3,42 +3,42 @@ console.log("JS loaded");
 var playerHand = [];
 var dealerHand = [];
 
-let cards = [
+let tempCards = [
   {
     face:'ace',
     value: 11
   },
   {
-    face: '2',
+    face: 'two',
     value: 2
   },
-  { face: '3',
+  { face: 'three',
     value: 3
   },
-  { face: '4',
+  { face: 'four',
     value: 4
   },
   {
-    face: '5',
+    face: 'five',
     value: 5
   },
-  { face: '6',
+  { face: 'six',
     value: 6
   },
   {
-    face: '7',
+    face: 'seven',
     value: 7
   },
   {
-    face: '8',
+    face: 'eight',
     value: 8
   },
   {
-    face: '9',
+    face: 'nine',
     value: 9
   },
   {
-    face: '10',
+    face: 'ten',
     value: 10
   },
   {
@@ -52,7 +52,40 @@ let cards = [
   {
     face: 'jack',
     value: 10
-  }];
+  }
+];
+
+
+let cards = $.extend(true, [], tempCards);
+cards = cards.concat($.extend(true, [], tempCards));
+cards = cards.concat($.extend(true, [], tempCards));
+cards = cards.concat($.extend(true, [], tempCards));
+
+setCards();
+
+function setCards(){
+  for(let i = 0, len = cards.length; i < len; i++){
+    let card = cards[i];
+    switch(true){
+      case (i < 13):
+        card.suit = 'hearts';
+        card.color = 'red';
+        break;
+      case (i < 26 && i >= 13):
+        card.suit = 'diamonds';
+        card.color= 'red';
+        break;
+      case (i < 39 && i >= 26):
+        card.suit = 'spades';
+        card.color = 'black';
+        break;
+      default:
+        card.suit = 'clovers';
+        card.color = 'black';
+        break;
+    }
+  }
+}
 
 function getCards(cards, hand){
   for(let i=0;i < 2; i++){
@@ -65,11 +98,22 @@ function startGame(){
   Dealer.hand = [];
   Player.hand = [];
 
+  var $players = $(`
+      <div class='player dealer'>
+        <div id=dealer-hand>
+        </div>
+      </div>
+      <div class='player user'>
+        <div id=user-hand>
+        </div>
+      </div>
+    `);
+
+  $('#container').append($players);
+
   Dealer.startCards(cards);
   Player.startCards(cards);
 
-  console.log('player hand', Player.hand);
-  console.log('dealer hand', Dealer.hand);
   console.log('cards',cards);
 
   $('#hit').on('click', function(){
@@ -77,13 +121,16 @@ function startGame(){
     Player.hit(cards);
 
     console.log('player score', Player.hand);
-    if(Player.score() < 21){
-      Player.showHitStand();
-    }
-    else {
-      alert("Dealer wins");
-      startGame();
-    }
+
+    setTimeout(function() {
+      if(Player.score() < 21){
+        Player.showHitStand();
+      }
+      else {
+        alert("Dealer wins");
+        startGame();
+      }
+    }, 200);
 
     console.log('player score',Player.score());
   })
@@ -94,19 +141,21 @@ function startGame(){
 
     console.log('dealer', Dealer.hand);
 
-    if(Player.score() === Dealer.score()){
-      alert("Push, no one wins");
-    }
-    else if(Player.score() > Dealer.score()) {
-      alert("You win");
-    }
-    else {
-      alert('Dealer wins');
-    }
+    setTimeout(function() {
+      if(Player.score() === Dealer.score()){
+        alert("Push, no one wins");
+      }
+      else if(Player.score() > Dealer.score()) {
+        alert("You win");
+      }
+      else {
+        alert('Dealer wins');
+      }
+
+      startGame();
+    }, 200);
 
     console.log('dealer score',Dealer.score());
-
-    startGame()
   })
 }
 

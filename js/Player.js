@@ -11,7 +11,14 @@ var Player = (function(){
     },
     startCards: function(cards){
       while(this.hand.length < 2){
-        this.hand.push(cards.shift());
+        let card = cards.shift();
+        this.hand.push(card);
+
+        var $image = $(`
+            <div class='cards ${card.color}-${card.face}-${card.suit}'></div>
+          `);
+
+        $('#user-hand').append($image);
       }
 
       console.log(this.score());
@@ -29,10 +36,14 @@ var Player = (function(){
       }
     },
     hit: function(cards) {
-      this.hand.push(cards.shift());
-    },
-    stand: function() {
+      var card = cards.shift();
+      this.hand.push(card);
 
-    }
+      var $image = $(`
+          <div class='cards ${card.color}-${card.face}-${card.suit}'></div>
+        `);
+
+      $('#user-hand').append($image);
+    },
   }
 })();
