@@ -11,7 +11,12 @@ header {
 
 main {
   max-width: 1080px;
+  height: 90%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .start-game {
@@ -21,11 +26,17 @@ main {
   padding: 0.5em;
 }
 
-.game-wrapper {
+/*.game-wrapper {
     background-image: url('../images/blackjack-table.png');
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0 auto;
+    width: 80%;
     height: 100%;
+}*/
+
+.player {
+  padding: 5em;
 }
 
 .cards {
