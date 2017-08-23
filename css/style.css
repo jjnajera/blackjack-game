@@ -12,18 +12,22 @@ header {
 
 h1 {
   font-size: 3em;
+  margin: 0.3em;
 }
 
 h2, h3 {
   font-size: 1em;
+  margin: 0.3em;
 }
 
 h6 {
   font-size: 0.5em;
+  margin: 0.3em;
 }
 
 p {
   display: inline-block;
+  margin: 0.3em;
 }
 
 span {
@@ -54,6 +58,7 @@ main {
   height: 2rem;
   font-size: 0.8em;
   padding: 0.5em;
+  margin: 0.6em;
 }
 
 .game-wrapper {
@@ -66,7 +71,6 @@ main {
 .deal {
   display: none;
   width: 100%;
-  background: green;
 }
 
 .deal > p {
@@ -97,25 +101,29 @@ main {
 }
 
 #new{
-   z-index: 1000;
-   position: fixed;
-   display: none;
-   bottom: 50%;
-   left: 30%;
-   padding: 0 20px;
-   width: 50%;
-   text-align: center;
- }
+  z-index: 1000;
+  position: fixed;
+  display: none;
+  bottom: 50%;
+  left: 30%;
+  padding: 0 20px;
+  width: 50%;
+  text-align: center;
+}
 
- #message {
-   z-index: 1000;
-   position: fixed;
-   display: none;
-   bottom: 50%;
-   padding: 0 20px;
-    margin: 0 auto;
-   text-align: center;
- }
+#message {
+  z-index: 1000;
+  position: fixed;
+  display: none;
+  bottom: 50%;
+  padding: 0 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#message > h3 {
+  font-size: 5em;
+}
 /******************************
 * Red Hearts
 ******************************/
