@@ -26,8 +26,12 @@ var Dealer = (function() {
       $('.cards').removeClass('back-cover');
       $('#dealer-score').text(this.score());
 
+      var ace = Player.hand.find(function(elem) {
+        return elem.value === 11;
+      });
+
       if(this.score() > 16){
-        return true;
+          return true;
       }
       else{
           setTimeout(function() {
