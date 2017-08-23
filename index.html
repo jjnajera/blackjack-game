@@ -8,12 +8,18 @@
     <title>Blackjack</title>
   </head>
   <body>
-      <header>
+      <header class="body">
         <h1>Blackjack</h1>
         <h2>Test you luck against the house</h2>
         <h6>...just remember the house always wins</h6>
       </header>
-      <main id="container">
+      <aside>
+        <div class="deal">
+          <p>Betting Amount: $<span id='bet-total'>0</span></p>
+          <p>Account: $<span id='account'>2000</span><p>
+        </div>
+      </aside>
+      <main id="container" class="body">
         <form class="game">
           <button class="start-game">Start Game</button>
         </form>
@@ -22,6 +28,17 @@
           <p>Your goal is to have a higher hand than the dealer without going over 21</p>
         </section>
       </main>
+      <div id="message">
+      </div>
+      <div id='new'>
+        <h3>Place your bet</h3>
+        <div class='bets-wrapper'>
+          <button class='bets' id='one'>One</button>
+          <button class='bets' id='ten'>Ten</button>
+          <button class='bets' id='fifty'>Fifty</button>
+          <button class='bets' id='place-deal'>Deal</button>
+        </div>
+      </div>
     <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
