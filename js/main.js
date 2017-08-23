@@ -93,6 +93,20 @@ function getCards(cards, hand){
   }
 }
 
+function displayOutcome(result) {
+  $('.body').css('opacity', '0.3');
+  $('#message').css('display', 'flex');
+
+  $('#message').html(`<h3>${result}</h3>`);
+
+  setTimeout(function() {
+    $('.body').css('opacity', '1');
+    $('#message').css('display', 'none');
+
+    startGame();
+  }, 500);
+}
+
 function startGame(){
   $('#container').empty();
   Dealer.hand = [];
@@ -137,8 +151,8 @@ function startGame(){
         Player.showHitStand();
       }
       else {
-        alert("Dealer wins");
-        startGame();
+        $('#account').text(parseInt($('#account').text())-parseInt($('#bet-total').text()));
+        displayOutcome('busted');
       }
     }, 200);
 
@@ -153,15 +167,15 @@ function startGame(){
     setTimeout(function() {
       console.log(Dealer.score());
       if(Player.score() === Dealer.score()){
-        alert("Push, no one wins");
-      }
+        alert("Push, no one wins");      }
       else if(Player.score() > Dealer.score() || Dealer.score() >= 22) {
-        alert("You win");
+        $('#account').text(parseInt($('#account').text())+parseInt($('#bet-total').text())*2);
+        displayOutcome('Player Won');
       }
       else {
-        alert('Dealer wins');
+        $('#account').text(parseInt($('#account').text())-parseInt($('#bet-total').text()));
+        displayOutcome('Dealer Won');
       }
-
       startGame();
     }, 900);
   })
@@ -175,9 +189,38 @@ $(function() {
     console.log('button clicked');
     event.preventDefault();
 
-    $('#container').addClass('game-wrapper');
     cards.sort(function(){return 0.5-Math.random()});
 
-    startGame();
-  })
+    $('.body').css('opacity', '.3');
+    $('#new').css('display', 'flex');
+    $('.deal').css('display', 'inline-block').css('opacity', '1');
+
+    $('.bets').on('click', function() {
+      var $button = $(this).attr('id');
+      var current;
+      var $account = $('#account');
+      switch($button){
+        case 'one':
+          current = parseInt($('#bet-total').text())+1;
+          $account.text(parseInt($account.text())-1);
+          $('#bet-total').text(current);
+          break;
+        case 'ten':
+          current = parseInt($('#bet-total').text())+10;
+          $account.text(parseInt($account.text())-10);
+          $('#bet-total').text(current);
+          break;
+        case 'fifty':
+          current = parseInt($('#bet-total').text())+50;
+          $account.text(parseInt($account.text())-50);
+          $('#bet-total').text(current);
+          break;
+        default:
+          $('#container').addClass('game-wrapper');
+          $('.body').css('opacity', '1');
+          $('#new').css('display', 'none');
+          startGame();
+      }
+    });
+  });
 })
