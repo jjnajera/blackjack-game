@@ -71,7 +71,7 @@ $(function() {
     var deckMade = createDeck(DECK_COUNT);
 
     $('.body').css('opacity', '.3');
-    $('.waiting').css('display', 'flex');
+    $('.waiting').css('display', 'block');
 
     setTimeout(function() {
       if(deckMade){

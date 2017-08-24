@@ -16,7 +16,7 @@ h1 {
 }
 
 h2, h3 {
-  font-size: 1em;
+  font-size: 1.5em;
   margin: 0.3em;
 }
 
@@ -27,12 +27,17 @@ h6 {
 
 p {
   display: inline-block;
-  margin: 0.3em;
+  font-size: 1em;
 }
 
 span {
   display: inline-block;
   font-size: 2.5em;
+}
+
+li {
+  margin: 10px 5px;
+  text-align: left;
 }
 
 input[type=submit] {
@@ -54,11 +59,13 @@ main {
 }
 
 .start-game {
-  width: 8rem;
-  height: 2rem;
-  font-size: 0.8em;
-  padding: 0.5em;
-  margin: 0.6em;
+  background: #1212e0;
+  border-radius: 23px;
+  color: #ffffff;
+  font-size: 1.5em;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  margin: 10px;
 }
 
 .game-wrapper {
@@ -110,7 +117,6 @@ main {
   display: none;
   width: 50%;
   bottom: 50%;
-  left: 30%;
   margin: 0 auto;
   text-align: center;
 }
@@ -512,9 +518,8 @@ main {
     width: 100%;
   }
 
-  #new {
+  #new, #message {
     margin: 0 auto;
-    left: 0;
   }
 
   .cards {
