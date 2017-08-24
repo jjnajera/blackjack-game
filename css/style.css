@@ -38,7 +38,7 @@ span {
 input[type=submit] {
   padding: 0.5em;
   font-size: 1em;
-  width: 4em;
+  width: 4.5em;
   height: 10%;
   background: tomato;
   margin: 0.8em;
@@ -489,11 +489,40 @@ main {
   background-position-y: 100px;
 }
 
+/*******************************
+* Media Queries
+*******************************/
+
 @media screen and (max-width: 560px){
   body {
     font-size: 10px;
   }
+
   .game-wrapper {
+    background-image: none;
     background-size: 100% 150%;
+    background-color: green;
+  }
+
+  .player {
+    padding: 2em;
+  }
+
+  #new, #message, .game-over, .waiting {
+    width: 100%;
+  }
+
+  #new {
+    margin: 0 auto;
+    left: 0;
+  }
+
+  .cards {
+    zoom: 0.7;
+  }
+
+  .bets {
+    display: inline-block;
+    width: 40%;
   }
 }
