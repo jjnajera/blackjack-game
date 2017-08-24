@@ -21,7 +21,7 @@ var Player = (function(){
       $('#user-hand').append($image);
       $('#user-score').text(this.score());
 
-      var ace = Player.hand.find(function(elem) {
+      var ace = this.hand.find(function(elem) {
         return elem.value === 11;
       });
 
@@ -29,7 +29,6 @@ var Player = (function(){
           Player.showHitStand();
         }
         else if(Player.score() === 21){
-          Dealer.turn(cards);
           return 'done';
         }
         else if(ace){

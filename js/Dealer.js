@@ -18,6 +18,14 @@ var Dealer = (function() {
         $image.addClass('back-cover');
       }
 
+      var ace = this.hand.find(function(elem) {
+        return elem.value === 11;
+      });
+
+      if(this.score() >= 22 && ace){
+        ace.value = 1;
+      }
+
       $('#dealer-hand').append($image);
     },
     turn: function(cards){
