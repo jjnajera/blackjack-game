@@ -70,14 +70,17 @@ $(function() {
 
     var deckMade = createDeck(DECK_COUNT);
 
+    $('.body').css('opacity', '.3');
+    $('.waiting').css('display', 'flex');
+
     setTimeout(function() {
       if(deckMade){
+        $('.waiting').hide();
         cards.sort(function(){return 0.5-Math.random()});
-        $('.body').css('opacity', '.3');
         $('#new').css('display', 'flex');
         $('.deal').css('display', 'inline-block').css('opacity', '1');
       }
-    },800);
+    },2000);
 
     $('.bets').on('click', function() {
         var $button = $(this).attr('id');
@@ -129,17 +132,20 @@ $(function() {
     if(cards.length < 6) {
       cards = [];
       var deckMade = createDeck(DECK_COUNT);
+      $('#message').hide();
+
+      $('.waiting').css('display', 'flex');
     }
 
     setTimeout(function() {
       if(deckMade){
+        $('.waiting').hide();
         cards.sort(function(){return 0.5-Math.random()});
-        $('.body').css('opacity', '.3');
         $('#new').css('display', 'flex');
         $('.deal').css('display', 'inline-block').css('opacity', '1');
       }
       else {
-        $('#message').css('display', 'none');
+        $('#message').hide();
 
         if(parseInt($('#account').text()) <= 0)
         {
@@ -150,7 +156,7 @@ $(function() {
           $('.deal').css('display', 'inline-block').css('opacity', '1');
         }
       }
-    },800);
+    },2000);
   }
 
   function startGame(){
