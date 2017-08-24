@@ -6,46 +6,44 @@ var Dealer = (function() {
         return total + card.value;
       }, 0)
     },
-    startCards: function(cards){
-      while(this.hand.length < 2){
-        let card = cards.shift();
-        this.hand.push(card);
+    hit: function(cards) {
+      var card = cards.shift();
+      this.hand.push(card);
 
-        var $cardImage = $(`
-            <div class='cards ${card.color}-${card.face}-${card.suit}'></div>
-          `);
+      var $image = $(`
+          <div class='cards ${card.color}-${card.face}-${card.suit}'></div>
+        `);
 
-        if(this.hand.length === 2){
-            $cardImage.addClass('back-cover');
-        }
-
-        $('#dealer-hand').append($cardImage);
+      if(this.hand.length === 2){
+        $image.addClass('back-cover');
       }
+
+      $('#dealer-hand').append($image);
     },
     turn: function(cards){
       $('.cards').removeClass('back-cover');
       $('#dealer-score').text(this.score());
 
-      var ace = Player.hand.find(function(elem) {
-        return elem.value === 11;
-      });
+      var dealerCard = setInterval(function() {
 
-      if(this.score() > 16){
-          return true;
-      }
-      else{
-          setTimeout(function() {
-            let card = cards.shift();
-            Dealer.hand.push(card);
+        if(Dealer.score() > 16)
+            clearInterval(dealerCard);
+        else{
+          Dealer.hit(cards);
+          $('#dealer-score').text(Dealer.score());
+        }
+      }, 350);
 
-            var $cardImage = $(`
-                <div class='cards ${card.color}-${card.face}-${card.suit}'></div>
-              `);
-
-            $('#dealer-hand').append($cardImage);
-
-            return Dealer.turn(cards);
-          }, 300);
+      if(this.score() >= 17)
+      {
+        clearInterval(dealerCard);
+        console.log('clearing the interval');
+        if(this.score() <= 21){
+          return 'success';
+        }
+        else {
+          return 'busted';
+        }
       }
     }
   }

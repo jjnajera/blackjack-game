@@ -10,21 +10,6 @@ var Player = (function(){
       $('#hit').removeAttr('disabled');
       $('#stand').removeAttr('disabled');
     },
-    startCards: function(cards){
-      while(this.hand.length < 2){
-        let card = cards.shift();
-        this.hand.push(card);
-
-        var $image = $(`
-            <div class='cards ${card.color}-${card.face}-${card.suit}'></div>
-          `);
-
-        $('#user-hand').append($image);
-      }
-
-
-      $('#user-score').text(this.score());
-    },
     hit: function(cards) {
       var card = cards.shift();
       this.hand.push(card);
@@ -34,6 +19,30 @@ var Player = (function(){
         `);
 
       $('#user-hand').append($image);
-    },
+      $('#user-score').text(this.score());
+
+      var ace = Player.hand.find(function(elem) {
+        return elem.value === 11;
+      });
+
+        if(Player.score() < 21){
+          Player.showHitStand();
+        }
+        else if(Player.score() === 21){
+          Dealer.turn(cards);
+          return 'done';
+        }
+        else if(ace){
+          ace.value = 1;
+          $('#user-score').text(Player.score());
+          Player.showHitStand();
+        }
+        else {
+          $('#account').text(parseInt($('#account').text())-parseInt($('#bet-total').text()));
+          return 'busted';
+        }
+
+        return 'process';
+    }
   }
 })();

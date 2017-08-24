@@ -100,30 +100,33 @@ main {
   display: inline-block;
 }
 
-#new{
+/********************************
+* Display messages
+*********************************/
+
+#new, #message, .game-over {
   z-index: 1000;
   position: fixed;
   display: none;
   bottom: 50%;
-  left: 30%;
-  padding: 0 20px;
-  width: 50%;
+  margin: 0 auto;
   text-align: center;
 }
 
-#message {
-  z-index: 1000;
-  position: fixed;
-  display: none;
+#new{
+  left: 30%;
+  width: 50%;
+}
+
+#message, .game-over {
   bottom: 50%;
-  padding: 0 20px;
-  margin: 0 auto;
-  text-align: center;
+  left: 50%;
 }
 
 #message > h3 {
   font-size: 5em;
 }
+
 /******************************
 * Red Hearts
 ******************************/
