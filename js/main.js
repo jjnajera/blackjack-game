@@ -77,7 +77,7 @@ $(function() {
       if(deckMade){
         $('.waiting').hide();
         cards.sort(function(){return 0.5-Math.random()});
-        $('#new').css('display', 'flex');
+        $('#new').css('display', 'block');
         $('.deal').css('display', 'inline-block').css('opacity', '1');
       }
     },2000);
@@ -125,7 +125,7 @@ $(function() {
 
   function displayOutcome(result) {
     $('.body').css('opacity', '0.3');
-    $('#message').css('display', 'flex');
+    $('#message').css('display', 'block');
 
     $('#message').html(`<h3>${result}</h3>`);
 
@@ -134,14 +134,14 @@ $(function() {
       var deckMade = createDeck(DECK_COUNT);
       $('#message').hide();
 
-      $('.waiting').css('display', 'flex');
+      $('.waiting').css('display', 'block');
     }
 
     setTimeout(function() {
       if(deckMade){
         $('.waiting').hide();
         cards.sort(function(){return 0.5-Math.random()});
-        $('#new').css('display', 'flex');
+        $('#new').css('display', 'block');
         $('.deal').css('display', 'inline-block').css('opacity', '1');
       }
       else {
@@ -149,10 +149,10 @@ $(function() {
 
         if(parseInt($('#account').text()) <= 0)
         {
-          $('.game-over').css('display', 'flex');
+          $('.game-over').css('display', 'block');
         }
         else{
-          $('#new').css('display', 'flex');
+          $('#new').css('display', 'block');
           $('.deal').css('display', 'inline-block').css('opacity', '1');
         }
       }
@@ -256,35 +256,31 @@ $(function() {
       displayOutcome('Player Won');
     }
     else {
-      $('#account').text(parseInt($('#account').text())-parseInt($('#bet-total').text()));
       displayOutcome('Dealer Won');
     }
+
+    $('#bet-total').text(0);
   }
 
   function placeDeal($button) {
     disableButtons();
-    var current;
-    var $account = $('#account');
 
     if($('#place-deal').is(':disabled')){
       $('#place-deal').removeAttr('disabled').css('opacity', '1');
     }
+    else {
+      $('#place-deal').attr('disabled','true').css('opacity', '0.2');
+    }
 
     switch($button){
-      case 'one':
-        current = parseInt($('#bet-total').text())+1;
-        $account.text(parseInt($account.text())-1);
-        $('#bet-total').text(current);
-        break;
-      case 'ten':
-        current = parseInt($('#bet-total').text())+10;
-        $account.text(parseInt($account.text())-10);
-        $('#bet-total').text(current);
-        break;
       case 'fifty':
-        current = parseInt($('#bet-total').text())+50;
-        $account.text(parseInt($account.text())-50);
-        $('#bet-total').text(current);
+        updateBetting($button, 50);
+        break;
+      case 'hundred':
+        updateBetting($button, 100);
+        break;
+      case 'five':
+        updateBetting($button, 500);
         break;
       default:
         $('#container').addClass('game-wrapper');
@@ -293,5 +289,20 @@ $(function() {
         Player.showHitStand();
         startGame();
     }
+  }
+
+  function updateBetting($button, num) {
+    var $account = parseInt($('#account').text());
+
+    var current = parseInt($('#bet-total').text())+num;
+    $('#account').text($account-num)
+    $('#bet-total').text(current);
+
+    if(($account-num) < num)
+      $(`#${$button}`).attr('disabled', 'true').css('opacity', '0.2');
+    else {
+      $(`#${$button}`).removeAttr('disabled').css('opacity', '1');
+    }
+
   }
 })

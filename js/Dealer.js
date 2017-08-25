@@ -7,18 +7,19 @@ var Dealer = (function() {
       }, 0)
     },
     hit: function(cards) {
+      var dealerHand = this.hand;
       var card = cards.shift();
-      this.hand.push(card);
+      dealerHand.push(card);
 
       var $image = $(`
           <div class='cards ${card.color}-${card.face}-${card.suit}'></div>
         `);
 
-      if(this.hand.length === 2){
+      if(dealerHand.length === 2){
         $image.addClass('back-cover');
       }
 
-      var ace = this.hand.find(function(elem) {
+      var ace = dealerHand.find(function(elem) {
         return elem.value === 11;
       });
 
@@ -33,19 +34,18 @@ var Dealer = (function() {
       $('#dealer-score').text(this.score());
 
       var dealerCard = setInterval(function() {
-
-        if(Dealer.score() > 16)
+        let score = Dealer.score();
+        if(score > 16)
             clearInterval(dealerCard);
         else{
           Dealer.hit(cards);
-          $('#dealer-score').text(Dealer.score());
+          $('#dealer-score').text(score);
         }
       }, 350);
 
       if(this.score() >= 17)
       {
         clearInterval(dealerCard);
-        console.log('clearing the interval');
         if(this.score() <= 21){
           return 'success';
         }
