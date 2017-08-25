@@ -2,8 +2,9 @@ body {
   font-size: 20px;
   text-align: center;
   height: 100vh;
-  font-family: 'Baloo Bhaijaan', cursive;
-  background: #56e0ff
+  font-family: 'Droid Sans', sans-serif;
+  background: #7a0000;
+  color: white;
 }
 
 header {
@@ -36,8 +37,9 @@ span {
 }
 
 li {
-  margin: 10px 5px;
+  margin: 10px 30px;
   text-align: left;
+  list-style-type: disc;
 }
 
 input[type=submit] {
@@ -117,16 +119,12 @@ main {
   display: none;
   width: 50%;
   bottom: 50%;
-  margin: 0 auto;
+  margin: 0 25%;
   text-align: center;
 }
 
 #message > h3 {
   font-size: 5em;
-}
-
-.waiting {
-  display: none;
 }
 
 .loading {
@@ -516,9 +514,6 @@ main {
 
   #new, #message, .game-over, .waiting {
     width: 100%;
-  }
-
-  #new, #message {
     margin: 0 auto;
   }
 

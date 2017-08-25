@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Blackjack</title>
@@ -17,8 +17,8 @@
       </header>
       <aside>
         <div class="deal">
-          <p>Betting Amount: $<span id='bet-total'>0</span></p>
-          <p>Account: $<span id='account'>2000</span><p>
+          <p>Bet Amount: <span id='bet-total'>0</span> tokens</p>
+          <p>Account: <span id='account'>2000</span> tokens<p>
         </div>
       </aside>
       <main id="container" class="body">
@@ -27,7 +27,6 @@
         </form>
         <section>
           <h3>Rules of the game</h3>
-          <p>Your goal is to have a higher hand than the dealer without going over 21</p>
           <ul>
             <li>Before playing, make sure to place a friendly wager then hitting the deal button</li>
             <li>You and the dealer will start off with two cards each</li>
@@ -51,9 +50,9 @@
       </div>
       <div id='new'>
         <div class='bets-wrapper'>
-          <button class='bets' id='one'>One</button>
-          <button class='bets' id='ten'>Ten</button>
-          <button class='bets' id='fifty'>Fifty</button>
+          <button class='bets' id='fifty'>50</button>
+          <button class='bets' id='hundred'>100</button>
+          <button class='bets' id='five'>500</button>
           <button class='bets' id='place-deal'>Deal</button>
         </div>
       </div>
