@@ -61,6 +61,7 @@ $(function() {
   var Player = App.Player();
 
   $('.game').on('submit', function(event){
+    $(this).hide();
     event.preventDefault();
 
     $('#place-deal').attr('disabled', 'true').css('opacity', '0.4');
@@ -236,6 +237,7 @@ $(function() {
     })
 
     $('#stand').on('click', function(){
+      $('#double').hide();
       dealerFinished();
     })
   }
