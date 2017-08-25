@@ -25,10 +25,11 @@ Look at wireframe to see the design process for the game.
 
 ### Design Thinking
 My approach to the game was getting the logic working, then working on the styling of the page. To get the logic working, I had to figure out how to hold all the cards in the game. I settle on an array of objects with objects holding the important information of the card like the suit, value, face, etc. Once I got the cards set up, I had to figure out how to get the player and dealer to take their turns respectively. For the player, I decided to used buttons. For the dealer I had it getting a card until its hand was over 16. Once the logic was set up, I used styling and jQuery to display the cards and scoring.
-
+<div>
 <a href="url"><img src="https://github.com/jjnajera/blackjack-game/tree/master/images/start-page.png" align="left" height="400" width="49%" ></a>
 
 <a href="url"><img src="https://github.com/jjnajera/blackjack-game/tree/master/images/game-page.png" align="right" height="400" width="49%" ></a>
+</div>
 
 After getting the MVP set up, I went back to add features like a loading screening when the deck is being shuffled.
 
