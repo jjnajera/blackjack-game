@@ -1,5 +1,6 @@
 # Blackjack-game
 
+Github-page: https://jjnajera.github.io/blackjack-game/
 Turning an interesting casino game into a web application using HTML, CSS and JavaScript.
 
 ## Rules of the Game
