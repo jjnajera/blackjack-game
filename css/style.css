@@ -107,6 +107,10 @@ main {
   margin: 10px;
 }
 
+#place-deal {
+  background: #015607;
+}
+
 .cards {
   background-image: url('../images/deck-of-cards.gif');
   width: 72px;
