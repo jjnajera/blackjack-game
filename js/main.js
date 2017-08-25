@@ -61,12 +61,9 @@ $(function() {
   var Player = App.Player();
 
   $('.game').on('submit', function(event){
-    console.log('button clicked');
     event.preventDefault();
 
-    console.log(cards);
     $('#place-deal').attr('disabled', 'true').css('opacity', '0.4');
-
 
     var deckMade = createDeck(DECK_COUNT);
 
@@ -81,11 +78,11 @@ $(function() {
         $('.deal').css('display', 'inline-block').css('opacity', '1');
       }
     },2000);
+  });
 
-    $('.bets').on('click', function() {
-        var $button = $(this).attr('id');
-        placeDeal($button);
-    });
+  $('.bets').on('click', function() {
+      var $button = $(this).attr('id');
+      placeDeal($button);
   });
 
   function createDeck(count) {
@@ -138,11 +135,12 @@ $(function() {
     }
 
     setTimeout(function() {
+      let accountVal = parseInt($('#account').text());
+
       if(deckMade){
         $('.waiting').hide();
         cards.sort(function(){return 0.5-Math.random()});
         $('#new').css('display', 'block');
-        $('.deal').css('display', 'inline-block').css('opacity', '1');
       }
       else {
         $('#message').hide();
@@ -153,10 +151,27 @@ $(function() {
         }
         else{
           $('#new').css('display', 'block');
-          $('.deal').css('display', 'inline-block').css('opacity', '1');
         }
       }
+
+      $('#place-deal').attr('disabled','true').css('opacity', '0.2');
+      enableBetting(accountVal);
     },2000);
+  }
+
+  function enableBetting(accountVal) {
+    switch(true) {
+      case (accountVal >= 50 && accountVal < 100):
+       $('#five').removeAttr('disabled').css('opacity', '1');
+       break;
+      case (accountVal >= 100 && accountVal < 500):
+        $('#five').removeAttr('disabled').css('opacity', '1');
+        $('#hundred').removeAttr('disabled').css('opacity', '1');
+        break;
+      case (accountVal >= 500):
+        $('#place-deal').children().removeAttr('disabled').css('opacity', '1');
+        break;
+    }
   }
 
   function startGame(){
@@ -234,11 +249,8 @@ $(function() {
     var dealersResult = Dealer.turn(cards);
     disableButtons();
 
-    console.log(dealersResult);
     switch (dealersResult) {
       case 'busted':
-        displayOutcome('Player won');
-        break;
       case 'success':
         whoWon();
         break;
@@ -249,7 +261,8 @@ $(function() {
 
   function whoWon(){
     if(Player.score() === Dealer.score()){
-        displayOutcome('Pushed');
+      $('#account').text(parseInt($('#account').text())+parseInt($('#bet-total').text()));
+      displayOutcome('Pushed');
     }
     else if((Player.score() > Dealer.score() && Player.score() <= 21) || Dealer.score() >= 22) {
       $('#account').text(parseInt($('#account').text())+parseInt($('#bet-total').text())*2);
@@ -265,7 +278,7 @@ $(function() {
   function placeDeal($button) {
     disableButtons();
 
-    if($('#place-deal').is(':disabled')){
+    if($('#place-deal').is(':disabled') || parseInt($('#bet-total').text()) > 0){
       $('#place-deal').removeAttr('disabled').css('opacity', '1');
     }
     else {
@@ -300,9 +313,5 @@ $(function() {
 
     if(($account-num) < num)
       $(`#${$button}`).attr('disabled', 'true').css('opacity', '0.2');
-    else {
-      $(`#${$button}`).removeAttr('disabled').css('opacity', '1');
-    }
-
   }
 })
