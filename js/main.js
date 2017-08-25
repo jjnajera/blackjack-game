@@ -184,12 +184,12 @@ $(function() {
         <div class='player dealer'>
           <div id=dealer-hand>
           </div>
-          <span id='dealer-score'>0</span>
+          <p>Dealer: <span id='dealer-score'>0</span></p>
         </div>
         <div class='player user'>
           <div id=user-hand>
           </div>
-          <span id='user-score'>0</span>
+          <p>Player: <span id='user-score'>0</span></p>
           <div class="decision">
             <input type="submit" value="Hit" id="hit">
             <input type="submit" value="Stand" id="stand">
