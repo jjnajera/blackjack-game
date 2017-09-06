@@ -127,7 +127,7 @@ $(function() {
 
     $('#message').html(`<h3>${result}</h3>`);
 
-    if(cards.length < 6) {
+    if(cards.length < 8) {
       cards = [];
       var deckMade = createDeck(DECK_COUNT);
       $('#message').hide();
@@ -146,7 +146,7 @@ $(function() {
       else {
         $('#message').hide();
 
-        if(parseInt($('#account').text()) <= 0)
+        if(accountVal <= 0)
         {
           $('.game-over').css('display', 'block');
         }
@@ -154,23 +154,29 @@ $(function() {
           $('#new').css('display', 'block');
         }
       }
-
       $('#place-deal').attr('disabled','true').css('opacity', '0.2');
       enableBetting(accountVal);
     },2000);
   }
 
   function enableBetting(accountVal) {
+    console.log("Account: ", accountVal);
     switch(true) {
       case (accountVal >= 50 && accountVal < 100):
-       $('#five').removeAttr('disabled').css('opacity', '1');
-       break;
+        console.log("fifty");
+        $('#fifty').removeAttr('disabled').css('opacity', '1');
+        break;
       case (accountVal >= 100 && accountVal < 500):
-        $('#five').removeAttr('disabled').css('opacity', '1');
+        console.log('100');
+        $('#fifty').removeAttr('disabled').css('opacity', '1');
         $('#hundred').removeAttr('disabled').css('opacity', '1');
         break;
       case (accountVal >= 500):
-        $('#place-deal').children().removeAttr('disabled').css('opacity', '1');
+        console.log('500');
+        $('#fifty').removeAttr('disabled').css('opacity', '1');
+        $('#hundred').removeAttr('disabled').css('opacity', '1');
+        $('#five').removeAttr('disabled').css('opacity', '1');
+        // $('#place-deal').children().removeAttr('disabled').css('opacity', '1');
         break;
     }
   }
@@ -264,17 +270,18 @@ $(function() {
   function whoWon(){
     if(Player.score() === Dealer.score()){
       $('#account').text(parseInt($('#account').text())+parseInt($('#bet-total').text()));
+      $('#bet-total').text(0);
       displayOutcome('Pushed');
     }
     else if((Player.score() > Dealer.score() && Player.score() <= 21) || Dealer.score() >= 22) {
       $('#account').text(parseInt($('#account').text())+parseInt($('#bet-total').text())*2);
+      $('#bet-total').text(0);
       displayOutcome('Player Won');
     }
     else {
+      $('#bet-total').text(0);
       displayOutcome('Dealer Won');
     }
-
-    $('#bet-total').text(0);
   }
 
   function placeDeal($button) {
